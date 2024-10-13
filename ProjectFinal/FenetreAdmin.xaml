@@ -1,0 +1,94 @@
+﻿<Window x:Class="ProjectFinal.FenetreAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectFinal"
+        mc:Ignorable="d"
+  Title="FenetreAdmin" Height="700" Width="800" Background="#FF90E4C1" FontSize="20" Loaded="Window_Loaded" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <!-- Row for DataGrid -->
+        </Grid.RowDefinitions>
+
+        <!-- Image and Title -->
+        <Image Source="images\NorthernLight.png" 
+               Margin="10" 
+               Width="200" 
+               Height="150" 
+               VerticalAlignment="top"
+               HorizontalAlignment="Left"
+               Grid.Row="0"/>
+
+        <TextBlock Text="Accueil Administrateur" 
+                   FontSize="40"  
+                   Foreground="#014D4E" 
+                   FontWeight="Bold" 
+                   Margin="10"  
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   Grid.Row="0"/>
+
+        <!-- Buttons for Gestion -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Margin="10">
+            <Button Content="Ajouter Employé" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Margin="10"
+                    Padding="5"
+                    Width="220"
+                    Background="#006D77" 
+                    Foreground="White"
+                    x:Name="btnAjouter"
+                    Click="btnAjouter_Click"/>
+
+            <Button Content="Modifier Employé" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Margin="10"
+                    Padding="5"
+                    Width="220"
+                    Background="#006D77" 
+                    Foreground="White"
+                    x:Name="btnModifier"
+                    Click="btnModifier_Click"/>
+            <Button Content="Retour" 
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Center" 
+                     Margin="10"
+                     Padding="5"
+                     Width="220"
+                     Background="#006D77" 
+                     Foreground="White"
+                    x:Name="btnRetour" Click="btnRetour_Click"/>
+            
+        </StackPanel>
+
+
+        <DataGrid x:Name="employeeDataGrid" 
+                  Grid.Row="2" 
+                  Margin="10" 
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  AlternatingRowBackground="LightGray"
+                  RowHeight="35"
+                  HeadersVisibility="Column"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding UserId}" Width="*"/>
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="*"/>
+                <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="*"/>
+                <DataGridTextColumn Header="Login" Binding="{Binding Login}" Width="*"/>
+                <DataGridTextColumn Header="Role" Binding="{Binding Role}" Width="*"/>
+                <DataGridTextColumn Header="Id Medecin" Binding="{Binding ID_Medecin}" Width="*"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,50 @@
+﻿<Window x:Class="ProjectFinal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectFinal"
+        mc:Ignorable="d"
+       Title="Logging" Height="450" Width="800" Background="#FF90E4C1" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Source="images/NorthernLight.png" Grid.Column="1" Grid.Row="1" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="Accueil" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#014D4E" FontSize="40" FontWeight="Bold"/>
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Label  Target="{Binding ElementName=txtUser}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="images/user.png" Width="16"/>
+                    <AccessText Margin="10"  Foreground=" #1C3144">_Utilisateur:</AccessText>
+                    <TextBox Name="txtUser" Margin="10,10,0,10" Width="221" />
+                </StackPanel>
+            </Label>
+
+            <Label Target="{Binding ElementName=txtPass}">
+                <StackPanel Orientation="Horizontal " VerticalAlignment="Center">
+                    <Image Source="images/key.png" Width="16"/>
+                    <AccessText Text="_Mot de Passe: " Margin="10" Foreground=" #1C3144 "/>
+                    <PasswordBox Name="txtPass" Margin="10,10,0,10" HorizontalAlignment="Left" Width="200" />
+                </StackPanel>
+            </Label>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btn_ok" Content="Connection" Margin="10" Background="#006D77" Foreground="White" Click="btn_ok_Click" />
+                <Button x:Name="btn_cancel" Content="Annuler" Margin="10"  Background="#006D77" Foreground="White" Click="btn_cancel_Click"/>
+
+
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>
